@@ -4,7 +4,6 @@
     --list-jumbo-height: 90px;
     --list-alert-height: 50px;
     --list-user-card-user-height: 60px;
-    --list-user-search-list-height: 50px;
     --chat-main-user-input-height: 50px;
     --chat-main-chat-box-mes-height: 40px;
 }
@@ -34,15 +33,12 @@ img{
     width: 80%;
     height: 600px;
     display: flex;
-    /*debug*/
-    border: 1px solid black;
 }
 .chat-list{
     width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
 }
 .chat-main{
     width: calc(100% - 35%);
@@ -56,7 +52,37 @@ img{
     height: var(--list-header-height);
     background-color: #eaeaea;
     border-bottom: 1px solid black;
+    display: flex;
 }
+/*LIST HEADER CHILDS*/
+.user-icon{
+    width: 20%;
+    height: 100%;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+}
+.user-icon img{
+    width: 60px;
+    height: 100%;
+    border-radius: 50%;
+}
+.username{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.user-functions{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: rgb(68, 68, 67);
+}
+/*END LIST HEADER CHILDS*/
 .list-jumbotron{
     width: 100%;
     height: var(--list-jumbo-height);
@@ -65,20 +91,59 @@ img{
 .alert,
 .search-chat{
     width: 100%;
-    border: 1px solid black;
 }
 .alert{
     height: var(--list-alert-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
 }
 .search-chat{
     height: calc(100% - var(--list-alert-height));
     background-color: white;
+    display: flex;
+    align-items: center;
 }
 .list-users{
     width: 100%;
     flex-grow: 1;
     height: 100px;
     overflow-y: scroll;
+}
+/*ALERT CHILDS*/
+.bell-icon{
+    width: 10%;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(127, 193, 255);
+}
+.banner{
+    flex-grow: 1;
+}
+/*SEARCH CHAT CHILDS*/
+.search-icon{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-input{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+.search-icon,
+.search-input{
+    height: 100%;
+}
+#user-search{
+    width: 100%;
+    height: 100%;
 }
 /*LIST-USERS CHILDS*/
 .card-user{
@@ -89,17 +154,6 @@ img{
     padding: 5px;
     display: flex;
     gap: 10px;
-}
-/*SEARCH-LIST CHILDS*/
-#find-user{
-    width: 90%;
-}
-.lens-search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
 }
 /*CARD-USER CHILDS*/
 .card-user img{
