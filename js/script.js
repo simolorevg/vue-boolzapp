@@ -164,7 +164,16 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            myInput:'',
+            activeFriend: null,
+            myMessages:[]
+        }
+    },
+    methods:{
+        sendMessage(){
+            let sendMessage=this.myInput;
+            this.myMessages.push(sendMessage);
         }
     }
 }).mount('#app');
