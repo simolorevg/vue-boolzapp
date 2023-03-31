@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="list-users">
-                    <div class="card-user" v-for="item in contacts">
+                    <div class="card-user" v-for="(item, index) in contacts">
                         <img src="img/avatar_1.jpg" alt="Avatar1">
                         <div class="card-infos">
                             <div>
@@ -35,7 +35,7 @@
                                 <p>Ultimo messaggio inviato</p>
                             </div>
                             <div>
-                                <p></p>
+                                <p>12:00</p>
                             </div>
                         </div>
                     </div>
@@ -45,8 +45,21 @@
                 <div class="list-header">
                     Utente selezionato
                 </div>
-                <div class="chat"></div>
-                <div class="user-input"></div>
+                <div class="chat">
+                    <div class="chat-box">
+                        <div class="message-sended">
+                            <div class="message-send">
+                                <p>Lorem Ipsum</p>
+                            </div>
+                        </div>
+                        <div class="message-receved">
+                            <div class="message-receve"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-input">
+
+                </div>
             </div>
         </div>
     </div>

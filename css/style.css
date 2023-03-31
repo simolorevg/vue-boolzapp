@@ -6,6 +6,7 @@
     --list-user-card-user-height: 60px;
     --list-user-search-list-height: 50px;
     --chat-main-user-input-height: 50px;
+    --chat-main-chat-box-mes-height: 40px;
 }
 /*RESET*/
 *{
@@ -42,16 +43,12 @@ img{
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    /*debug*/
-    background-color: orange;
 }
 .chat-main{
     width: calc(100% - 35%);
     height: 100%;
     display: flex;
     flex-direction: column;
-    /*debug*/
-    background-color: blue;
 }
 /*CHAT-LIST CHILDS*/
 .list-header{
@@ -123,5 +120,44 @@ img{
 .user-input{
     width: 100%;
     height: var(--chat-main-user-input-height);
+    background-color: white;
+}
+/*CHAT CHILDS*/
+.chat-box{
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    padding: 10px 0;
+    /*DEBUG*/
+    border: 1px solid black;
+}
+.message-sended,
+.message-receved{
+    width: 100%;
+    height: var(--chat-main-chat-box-mes-height);
+}
+.message-sended{
+    display: flex;
+    justify-content: flex-end;
+}
+.message-receved{
+    display: flex;
+    justify-content: flex-start;
+}
+/*MESSAGE-SENDED AND MESSAGE-RECEVED CHILDS*/
+.message-send,
+.message-receve{
+    height: 100%;
+    width: 10em;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+.message-send{
+    background-color: #d5f9ba;
+}
+.message-receve{
     background-color: white;
 }
