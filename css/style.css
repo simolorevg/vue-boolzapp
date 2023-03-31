@@ -130,13 +130,12 @@ img{
     padding: 10px 0;
     display: flex;
     flex-direction: column;
-    /*DEBUG*/
-    border: 1px solid black;
 }
 .message-sended,
 .message-receved{
     width: 80%;
     height: var(--chat-main-chat-box-mes-height);
+    margin-bottom: 10px;
 }
 .message-sended{
     align-self: flex-end;
@@ -152,16 +151,14 @@ img{
 .message-box{
     width: 50%;
     display: flex;
-    /*debug*/
-    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
 }
 .message-text{
     width: 50%;
     display: flex;
     align-items: center;
     flex-grow: 1;
-    /*debug*/
-    border: 1px solid black;
 }
 .message-time{
     width: 15%;
@@ -177,15 +174,19 @@ img{
 /*USER INPUT CHILDS*/
 .emoji,
 .send-vocal{
-    width: 20%;
+    width: 10%;
     height: 100%;
-    /*debug*/
-    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
 }
 .input-text{
     flex-grow: 1;
-    /*debug*/
-    border: 1px solid red;
+    display: flex;
+}
+.inputmessage{
+    width: 100%;
 }
 /*MESSAGE-COLOURS*/
 .send{
