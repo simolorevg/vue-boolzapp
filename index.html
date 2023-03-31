@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
@@ -47,18 +49,39 @@
                 </div>
                 <div class="chat">
                     <div class="chat-box">
+                        <!--Message send box-->
                         <div class="message-sended">
-                            <div class="message-send">
-                                <p>Lorem Ipsum</p>
+                            <div class="message-box send">
+                                <div class="message-text">
+                                    Lorem
+                                </div>
+                                <div class="message-time">
+                                    12:00
+                                </div>
                             </div>
                         </div>
+                        <!--/Message send box-->
+                        <!--Message receved box-->
                         <div class="message-receved">
-                            <div class="message-receve"></div>
+                            <div class="message-box receve">
+                                <div class="message-text">
+                                    Lorem
+                                </div>
+                                <div class="message-time">
+                                    12:00
+                                </div>
+                            </div>
                         </div>
+                        <!--Message receved box-->
                     </div>
                 </div>
                 <div class="user-input">
-
+                    <div class="emoji"></div>
+                    <div class="input-text">
+                        <label for="user-text-chat"></label>
+                    <input type="text" id="user-text-chat" placeholder="Scrivi qui">
+                    </div>
+                    <div class="send-vocal"></div>
                 </div>
             </div>
         </div>
