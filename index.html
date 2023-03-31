@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container" id="app">
         <div class="chat-container">
@@ -17,8 +20,25 @@
                     <div class="search-chat"></div>
                 </div>
                 <div class="list-users">
-                    <div class="card-user"></div>
-
+                    <div class="card-user">
+                        <img src="img/avatar_1.jpg" alt="Avatar1">
+                        <div class="card-infos">
+                            <div>
+                                <h2>Pippo Franco</h2>
+                                <p>Lorem Lorem Lorem</p>
+                            </div>
+                            <div>
+                                <p>12:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-list">
+                    <div class="lens-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <label for="find-user"></label>
+                    <input type="text" id="find-user" placeholder="Cerca Utente">
                 </div>
             </div>
             <div class="chat-main">
@@ -28,4 +48,5 @@
     </div>
     <script src="js/script.js"></script>
 </body>
+
 </html>

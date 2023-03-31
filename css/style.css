@@ -3,7 +3,8 @@
     --list-header-height: 60px;
     --list-jumbo-height: 90px;
     --list-alert-height: 50px;
-    --list-user-card-user-height: 50px;
+    --list-user-card-user-height: 60px;
+    --list-user-search-list-height: 50px;
 }
 /*RESET*/
 *{
@@ -38,6 +39,7 @@ img{
     width: 35%;
     height: 100%;
     border: 1px solid black;
+    position: relative;
     /*debug*/
     background-color: orange;
 }
@@ -80,8 +82,39 @@ img{
     height: var(--list-user-card-user-height);
     background-color: white;
     border-bottom: 1px solid grey;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+}
+.search-list{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 336px;
+    left: 0;
+    width: 100%;
+    height: var(--list-user-search-list-height);
+    background-color: white;
+}
+/*SEARCH-LIST CHILDS*/
+#find-user{
+    width: 90%;
+}
+.lens-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
 }
 /*CARD-USER CHILDS*/
 .card-user img{
-
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.card-infos{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 60px);
 }
