@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
 </head>
 
@@ -26,15 +27,15 @@
                     </div>
                 </div>
                 <div class="list-users">
-                    <div class="card-user">
+                    <div class="card-user" v-for="item in contacts">
                         <img src="img/avatar_1.jpg" alt="Avatar1">
                         <div class="card-infos">
                             <div>
-                                <h2>Pippo Franco</h2>
-                                <p>Lorem Lorem Lorem</p>
+                                <h2>{{item.name}}</h2>
+                                <p>Ultimo messaggio inviato</p>
                             </div>
                             <div>
-                                <p>12:00</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>
