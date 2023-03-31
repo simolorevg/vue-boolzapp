@@ -3,7 +3,6 @@
     --list-header-height: 60px;
     --list-jumbo-height: 90px;
     --list-alert-height: 50px;
-    --list-user-card-user-height: 60px;
     --chat-main-user-input-height: 50px;
     --chat-main-chat-box-mes-height: 40px;
 }
@@ -152,7 +151,6 @@ img{
 /*LIST-USERS CHILDS*/
 .card-user{
     width: 100%;
-    height: var(--list-user-card-user-height);
     background-color: white;
     border-bottom: 1px solid grey;
     padding: 5px;

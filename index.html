@@ -38,7 +38,7 @@
                        <div class="banner">
                         <h4>Ricevi le notifiche di nuovi messaggi</h4>
                         <a href="#activenotify">
-                            Attuva le notifiche desktop
+                            Attiva le notifiche desktop
                         </a>
                        </div>
                     </div>
@@ -54,14 +54,14 @@
                 </div>
                 <div class="list-users">
                     <div class="card-user" v-for="(item, index) in contacts">
-                        <img src="img/avatar_1.jpg" alt="Avatar1">
+                        <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                         <div class="card-infos">
                             <div>
                                 <h2>{{item.name}}</h2>
-                                <p>Ultimo messaggio inviato</p>
+                                <p>{{item.messages[0].message}}</p>
                             </div>
                             <div>
-                                <p>12:00</p>
+                                <p>{{item.messages[0].date}}</p>
                             </div>
                         </div>
                     </div>
