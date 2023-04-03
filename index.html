@@ -103,13 +103,16 @@
                         <!--/Message send box-->
                         <!--Message receved box-->
                         <div class="message-receved">
-                            <div class="message-box receve">
-                                <div class="message-text">
-                                    Lorem
+                            <div class="message-box receve" v-if="activeFriend !== null">
+                                <div class="message-text" v-for="(txtmsg, index) in activeFriend.messages">
+                                    {{activeFriend.messages[index].message}}
                                 </div>
                                 <div class="message-time">
                                     12:00
                                 </div>
+                            </div>
+                            <div v-else>
+                                <h1>Seleziona chat</h1>
                             </div>
                         </div>
                         <!--Message receved box-->
