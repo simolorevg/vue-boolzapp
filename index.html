@@ -75,7 +75,7 @@
                         </div>
                         <div class="friend-name">
                             <h2>{{activeFriend.name}}</h2>
-                            <p>{{activeFriend.messages[0].message}}</p>
+                            <p>{{activeFriend.messages[1].message}}</p>
                         </div>
                         <div class="friend-functions">
                             <i class="fa-solid fa-magnifying-glass cu-clickable"></i>
@@ -103,8 +103,8 @@
                         <!--/Message send box-->
                         <!--Message receved box-->
                         <div class="message-receved">
-                            <div class="message-box receve" v-if="activeFriend !== null">
-                                <div class="message-text" v-for="(txtmsg, index) in activeFriend.messages">
+                            <div class="message-box receve" v-if="activeFriend !== null" v-for="(txtmsg, index) in activeFriend.messages">
+                                <div class="message-text">
                                     {{activeFriend.messages[index].message}}
                                 </div>
                                 <div class="message-time">
@@ -112,7 +112,6 @@
                                 </div>
                             </div>
                             <div v-else>
-                                <h1>Seleziona chat</h1>
                             </div>
                         </div>
                         <!--Message receved box-->

@@ -222,24 +222,24 @@ body{
 }
 .message-sended,
 .message-receved{
-    width: 80%;
-
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 10px;
 }
 .message-sended{
     align-self: flex-end;
-    display: flex;
     justify-content: flex-end;
 }
 .message-receved{
     align-self: flex-start;
-    display: flex;
     justify-content: flex-start;
 }
 /*MESSAGE-SENDED AND MESSAGE-RECEVED CHILDS*/
 .message-box{
-    width: 50%;
+    width: 100%;
     display: flex;
+    margin-bottom: 10px;
     padding: 5px;
     border-radius: 5px;
 }
