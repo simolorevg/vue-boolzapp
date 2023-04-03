@@ -165,15 +165,16 @@ createApp({
                     ],
                 }
             ],
-            myInput:'',
+            myMessage:'',
             activeFriend: null,
-            myMessages:[]
+            messageSended: []
         }
     },
     methods:{
         sendMessage(){
-            let sendMessage=this.myInput;
-            this.myMessages.push(sendMessage);
+            this.messageSended.push(this.myMessage);
+            this.myMessage='';
+            console.log(this.messageSended);
         },
         activatedFriend(item, index){
             this.activeFriend = item;

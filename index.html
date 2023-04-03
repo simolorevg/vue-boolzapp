@@ -91,10 +91,11 @@
                     <div class="chat-box">
                         <!--Message send box-->
                         <div class="message-sended">
-                            <div class="message-box send">
+                            <div class="message-box send" v-for="(sms, index) in messageSended" v-if="messageSended.length > 0">
                                 <div class="message-text">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam vitae, corporis alias provident reprehenderit nihil molestias nulla itaque, iusto inventore veniam fuga laborum ea amet at, aut eveniet illum et?
+                                    {{messageSended[messageSended.length -1]}}
                                 </div>
+                                <div v-else></div>
                                 <div class="message-time">
                                     12:00
                                 </div>
@@ -124,7 +125,7 @@
                     <div class="input-text">
                         <label for="user-text-chat"></label>
                         <input type="text" id="user-text-chat" placeholder="Scrivi qui" class="inputmessage"
-                            v-model="myInput" @keydown.enter="sendMessage()">
+                            v-model="myMessage" @keyup.enter="sendMessage()">
                     </div>
                     <div class="send-vocal cu-clickable">
                         <i class="fa-solid fa-microphone"></i>
