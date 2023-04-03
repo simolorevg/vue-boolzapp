@@ -48,7 +48,7 @@
                         </div>
                         <div class="search-input">
                             <label for="user-search"></label>
-                            <input type="text" id="user-search" placeholder="Cerca o crea nuova chat">
+                            <input type="text" id="user-search" placeholder="Cerca o crea nuova chat" v-model="mySearch" @keyup.enter="searchingContacts">
                         </div>
                     </div>
                 </div>
@@ -89,30 +89,32 @@
                 </div>
                 <div class="chat">
                     <div class="chat-box">
-                        <!--Message send box-->
-                        <div class="message-sended" v-for="(sms, index) in messageSended" v-if="messageSended.length > 0">
-                            <div class="message-box send">
-                                <div class="message-text">
-                                    {{messageSended[index]}}
-                                </div>
-                                <div v-else></div>
-                                <div class="message-time">
-                                    12:00
-                                </div>
-                            </div>
-                        </div>
-                        <!--/Message send box-->
-                        <!--Message receved box-->
-                        <div class="message-receved" v-if="activeFriend !== null" v-for="(txtmsg, index) in botMessage">
-                            <div class="message-box receve">
-                                <div class="message-text">
-                                    {{botMessage[index]}}
-                                </div>
-                                <div class="message-time">
-                                    12:00
+                        <div v-for="(sms, index) in messageSended" v-if="messageSended.length > 0">
+                            <!--Message send box-->
+                            <div class="message-sended">
+                                <div class="message-box send">
+                                    <div class="message-text">
+                                        {{messageSended[index]}}
+                                    </div>
+                                    <div v-else></div>
+                                    <div class="message-time">
+                                        12:00
+                                    </div>
                                 </div>
                             </div>
-                            <div v-else>
+                            <!--/Message send box-->
+                            <!--Message receved box-->
+                            <div class="message-receved" v-if="activeFriend !== null">
+                                <div class="message-box receve">
+                                    <div class="message-text">
+                                        {{botMessage}}
+                                    </div>
+                                    <div class="message-time">
+                                        12:00
+                                    </div>
+                                </div>
+                                <div v-else>
+                                </div>
                             </div>
                         </div>
                         <!--Message receved box-->

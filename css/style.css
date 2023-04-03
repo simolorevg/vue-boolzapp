@@ -176,6 +176,7 @@ body{
 .chat{
     flex-grow: 1;
     background-image: url('../img/mine.jpg');
+    overflow-y: scroll;
 }
 .user-input{
     width: 100%;
@@ -226,8 +227,11 @@ body{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 10px;
+    /*debug*/
+    border: 1px solid black;
 }
 .message-sended{
+    margin-left: 320px;
     align-self: flex-end;
     justify-content: flex-end;
 }
@@ -283,4 +287,7 @@ body{
 }
 .receve{
     background-color: white;
+}
+.hidden{
+    display: none;
 }
