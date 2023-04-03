@@ -18,29 +18,29 @@
         <div class="chat-container">
             <div class="chat-list">
                 <div class="list-header">
-                   <div class="user-icon">
-                    <img src="img/avatar_io.jpg" alt="User">
-                   </div>
-                   <div class="username">
-                    Sofia
-                   </div>
-                   <div class="user-functions">
-                    <i class="fa-solid fa-circle-notch cu-clickable"></i>
-                    <i class="fa-solid fa-message cu-clickable"></i>
-                    <i class="fa-solid fa-ellipsis-vertical cu-clickable"></i>
-                   </div>
+                    <div class="user-icon">
+                        <img src="img/avatar_io.jpg" alt="User">
+                    </div>
+                    <div class="username">
+                        Sofia
+                    </div>
+                    <div class="user-functions">
+                        <i class="fa-solid fa-circle-notch cu-clickable"></i>
+                        <i class="fa-solid fa-message cu-clickable"></i>
+                        <i class="fa-solid fa-ellipsis-vertical cu-clickable"></i>
+                    </div>
                 </div>
                 <div class="list-jumbotron">
                     <div class="alert">
-                       <div class="bell-icon">
-                        <i class="fa-solid fa-bell-slash"></i>
-                       </div>
-                       <div class="banner">
-                        <h4>Ricevi le notifiche di nuovi messaggi</h4>
-                        <a href="#activenotify">
-                            Attiva le notifiche desktop
-                        </a>
-                       </div>
+                        <div class="bell-icon">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="banner">
+                            <h4>Ricevi le notifiche di nuovi messaggi</h4>
+                            <a href="#activenotify">
+                                Attiva le notifiche desktop
+                            </a>
+                        </div>
                     </div>
                     <div class="search-chat">
                         <div class="search-icon cu-clickable">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="list-users">
-                    <div class="card-user" v-for="(item, index) in contacts">
+                    <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)">
                         <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                         <div class="card-infos">
                             <div>
@@ -69,17 +69,22 @@
             </div>
             <div class="chat-main">
                 <div class="friend-header">
-                    <div class="friend-icon">
-                        <img src="img/avatar_2.jpg" alt="Avatar2">
-                    </div>
-                    <div class="friend-name">
-                        <h2>Pippo Franco</h2>
-                        <p>Ultimo messaggio ore...</p>
-                    </div>
-                    <div class="friend-functions">
-                        <i class="fa-solid fa-magnifying-glass cu-clickable"></i>
-                        <i class="fa-solid fa-paperclip cu-clickable"></i>
-                        <i class="fa-solid fa-ellipsis-vertical cu-clickable"></i>
+                    <div v-if="activeFriend !== null">
+                        <div class="friend-icon">
+                            <img :src="`./img/avatar${activeFriend.avatar}.jpg `" alt="Avatar2">
+                        </div>
+                        <div class="friend-name">
+                            <h2>Mario Rossi</h2>
+                            <p>Ciao</p>
+                        </div>
+                        <div class="friend-functions">
+                            <i class="fa-solid fa-magnifying-glass cu-clickable"></i>
+                            <i class="fa-solid fa-paperclip cu-clickable"></i>
+                            <i class="fa-solid fa-ellipsis-vertical cu-clickable"></i>
+                        </div>
+                        <div v-else>
+                            <h2>Seleziona chat</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="chat">
@@ -116,7 +121,8 @@
                     </div>
                     <div class="input-text">
                         <label for="user-text-chat"></label>
-                        <input type="text" id="user-text-chat" placeholder="Scrivi qui" class="inputmessage" v-model="myInput" @keydown.enter="sendMessage()">
+                        <input type="text" id="user-text-chat" placeholder="Scrivi qui" class="inputmessage"
+                            v-model="myInput" @keydown.enter="sendMessage()">
                     </div>
                     <div class="send-vocal cu-clickable">
                         <i class="fa-solid fa-microphone"></i>

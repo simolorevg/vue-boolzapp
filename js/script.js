@@ -174,6 +174,10 @@ createApp({
         sendMessage(){
             let sendMessage=this.myInput;
             this.myMessages.push(sendMessage);
+        },
+        activatedFriend(item, index){
+            this.activeFriend = item;
+            console.log(this.activeFriend);
         }
     }
 }).mount('#app');
