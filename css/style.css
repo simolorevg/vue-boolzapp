@@ -207,6 +207,10 @@ body{
     gap: 10px;
     padding: 20px;
 }
+#active-friend{
+    display: flex;
+    width: 100%;
+}
 /*CHAT CHILDS*/
 .chat-box{
     width: 80%;

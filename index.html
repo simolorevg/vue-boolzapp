@@ -69,22 +69,22 @@
             </div>
             <div class="chat-main">
                 <div class="friend-header">
-                    <div v-if="activeFriend !== null">
+                    <div v-if="activeFriend !== null" id="active-friend">
                         <div class="friend-icon">
                             <img :src="`./img/avatar${activeFriend.avatar}.jpg `" alt="Avatar2">
                         </div>
                         <div class="friend-name">
-                            <h2>Mario Rossi</h2>
-                            <p>Ciao</p>
+                            <h2>{{activeFriend.name}}</h2>
+                            <p>{{activeFriend.messages[0].message}}</p>
                         </div>
                         <div class="friend-functions">
                             <i class="fa-solid fa-magnifying-glass cu-clickable"></i>
                             <i class="fa-solid fa-paperclip cu-clickable"></i>
                             <i class="fa-solid fa-ellipsis-vertical cu-clickable"></i>
                         </div>
-                        <div v-else>
-                            <h2>Seleziona chat</h2>
-                        </div>
+                    </div>
+                    <div v-else>
+                        <h2>Seleziona chat</h2>
                     </div>
                 </div>
                 <div class="chat">
