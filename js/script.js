@@ -1,4 +1,6 @@
 let { createApp } = Vue;
+const dt = luxon.DateTime; 
+console.log(dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT));
 createApp({
     data() {
         return {
@@ -167,15 +169,17 @@ createApp({
             ],
             myMessage:'',
             activeFriend: null,
-            botMessage:['Ciao, come stai?', 'Tutto bene', 'Sono felice per te :-)'],
+            botMessage:['Ciao, come stai?', 'Tutto bene', 'Sono felice per te :-)', 'Piove da te?'],
             mySearch:''
         }
     },
     methods:{
         sendMessage(){
+            let newDate = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE)
             const newSendedMsg ={
                 message: this.myMessage,
-                status: 'sent'
+                status: 'sent',
+                date: newDate
             };
             this.activeFriend.messages.push(newSendedMsg);
             this.myMessage='';
@@ -190,9 +194,11 @@ createApp({
         },
         randomBotMessage(){
             let msgRndm = this.botMessage[this.getRndInteger(0, this.botMessage.length - 1)];
+            let newDate = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE)
             const botMsg = {
                 message: msgRndm,
-                status: 'received'
+                status: 'received',
+                date: newDate
             };
             msgRndm = '';
             this.activeFriend.messages.push(botMsg);

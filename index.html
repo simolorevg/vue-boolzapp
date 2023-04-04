@@ -97,7 +97,12 @@
                             <div v-for="(message, index) in activeFriend.messages">
                                 <div :class="activeFriend.messages[index].status === 'sent'? 'message-sended' : 'message-receved'">
                                     <div class="message-box" :class="activeFriend.messages[index].status === 'sent'? 'send' : 'receve'">
-                                        {{activeFriend.messages[index].message}}
+                                        <div class="message-text">
+                                            {{activeFriend.messages[index].message}}
+                                        </div>
+                                        <div class="message-time">
+                                            {{activeFriend.messages[index].date}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
