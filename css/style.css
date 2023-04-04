@@ -294,3 +294,6 @@ body{
 .hidden{
     display: none;
 }
+.width_hundred{
+    width: 100%;
+}
