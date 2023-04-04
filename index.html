@@ -9,6 +9,8 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    <!--Luxon Script-->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
 </head>
@@ -48,7 +50,8 @@
                         </div>
                         <div class="search-input">
                             <label for="user-search"></label>
-                            <input type="text" id="user-search" placeholder="Cerca o crea nuova chat" v-model="mySearch" @keyup.enter="searchingContacts">
+                            <input type="text" id="user-search" placeholder="Cerca o crea nuova chat" v-model="mySearch"
+                                @keyup.enter="searchingContacts">
                         </div>
                     </div>
                 </div>
@@ -95,8 +98,10 @@
                         <!--MESSAGES BOX-->
                         <div v-if="activeFriend !== null">
                             <div v-for="(message, index) in activeFriend.messages">
-                                <div :class="activeFriend.messages[index].status === 'sent'? 'message-sended' : 'message-receved'">
-                                    <div class="message-box" :class="activeFriend.messages[index].status === 'sent'? 'send' : 'receve'">
+                                <div
+                                    :class="activeFriend.messages[index].status === 'sent'? 'message-sended' : 'message-receved'">
+                                    <div class="message-box"
+                                        :class="activeFriend.messages[index].status === 'sent'? 'send' : 'receve'">
                                         <div class="message-text">
                                             {{activeFriend.messages[index].message}}
                                         </div>
@@ -131,8 +136,6 @@
             </div>
         </div>
     </div>
-    <!--Luxon Script-->
-    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <!--Custom Script-->
     <script src="js/script.js"></script>
 </body>
