@@ -207,7 +207,7 @@ createApp({
             };
             this.activeFriend.messages.push(newSendedMsg);
             this.myMessage='';
-            setTimeout(this.randomBotMessage, 1000);
+            setTimeout(this.randomBotMessage, 500);
         },
         activatedFriend(item, index){
             this.activeFriend = item;
