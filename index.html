@@ -57,7 +57,7 @@
                 </div>
                 <div class="list-users">
                     <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)">
-                        <div v-if="mySearch !== null" class="witdh_hundred">
+                        <div v-if="mySearch !== null" class="width_hundred">
                             <div :class="mySearch !== item.name ? 'hidden' : ''"  class="flexrw">
                                 <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                                 <div class="card-infos">
@@ -95,7 +95,7 @@
                         </div>
                         <div class="friend-name">
                             <h2>{{activeFriend.name}}</h2>
-                            <p>{{activeFriend.messages[0].message}}</p>
+                            <p>{{activeFriend.messages[1].message}}</p>
                             <!--Ho provato a metterci messages-length ma mi dà undefined-->
                         </div>
                         <div class="friend-functions">
