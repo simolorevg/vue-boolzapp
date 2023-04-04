@@ -89,33 +89,17 @@
                 </div>
                 <div class="chat">
                     <div class="chat-box">
-                        <div v-for="(sms, index) in messageSended" v-if="messageSended.length > 0">
-                            <!--Message send box-->
-                            <div class="message-sended">
-                                <div class="message-box send">
-                                    <div class="message-text">
-                                        {{messageSended[index]}}
-                                    </div>
-                                    <div v-else></div>
-                                    <div class="message-time">
-                                        12:00
+                        <div v-if="activeFriend !== null">
+                            <div v-for="(message, index) in activeFriend.messages">
+                                <div :class="activeFriend.messages[index].status === 'sent'? 'message-sended' : 'message-receved'">
+                                    <div class="message-box" :class="activeFriend.messages[index].status === 'sent'? 'send' : 'receve'">
+                                        {{activeFriend.messages[index].message}}
                                     </div>
                                 </div>
                             </div>
-                            <!--/Message send box-->
-                            <!--Message receved box-->
-                            <div class="message-receved" v-if="activeFriend !== null">
-                                <div class="message-box receve">
-                                    <div class="message-text">
-                                        {{botMessage}}
-                                    </div>
-                                    <div class="message-time">
-                                        12:00
-                                    </div>
-                                </div>
-                                <div v-else>
-                                </div>
-                            </div>
+                        </div>
+                        <div v-else>
+                            activefriend è nullo
                         </div>
                         <!--Message receved box-->
                     </div>

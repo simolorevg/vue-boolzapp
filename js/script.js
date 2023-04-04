@@ -167,17 +167,18 @@ createApp({
             ],
             myMessage:'',
             activeFriend: null,
-            messageSended: [],
-            botMessage:'',
+            botMessage:'ok',
             mySearch:''
         }
     },
     methods:{
         sendMessage(){
-            this.messageSended.push(this.myMessage);
+            const newSendedMsg ={
+                message: this.myMessage,
+                status: 'sent'
+            };
+            this.activeFriend.messages.push(newSendedMsg);
             this.myMessage='';
-            console.log(this.messageSended);
-            this.botMessage ='';
             setTimeout(this.randomBotMessage, 2000);
         },
         activatedFriend(item, index){
@@ -188,7 +189,11 @@ createApp({
             return Math.floor(Math.random() * (max - min)) + min;
         },
         randomBotMessage(){
-            this.botMessage = this.activeFriend.messages[this.getRndInteger(0,2)].message;
+            const botMsg = {
+                message: this.botMessage,
+                status: 'received'
+            }
+            this.activeFriend.messages.push(botMsg);
         },
         searchingContacts(){
             if(this.mySearch === this.contacts.name){

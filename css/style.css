@@ -227,8 +227,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 10px;
-    /*debug*/
-    border: 1px solid black;
 }
 .message-sended{
     margin-left: 320px;
