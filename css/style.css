@@ -217,6 +217,10 @@ body{
     display: flex;
     width: 100%;
 }
+.myLogo{
+    margin: 0 auto;
+    width: 100px;
+}
 /*CHAT CHILDS*/
 .chat-box{
     width: 80%;
