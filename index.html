@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!--Luxon Script-->
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -51,20 +51,36 @@
                         <div class="search-input">
                             <label for="user-search"></label>
                             <input type="text" id="user-search" placeholder="Cerca o crea nuova chat" v-model="mySearch"
-                                @keyup.enter="searchingContacts">
+                                @keyup.enter="searchingContacts()">
                         </div>
                     </div>
                 </div>
                 <div class="list-users">
                     <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)">
-                        <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
-                        <div class="card-infos">
-                            <div>
-                                <h2>{{item.name}}</h2>
-                                <p>{{item.messages[0].message}}</p>
+                        <div v-if="mySearch !== null" class="flexrw">
+                            <div :class="mySearch !== item.name ? 'hidden' : ''">
+                                <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
+                                <div class="card-infos">
+                                    <div>
+                                        <h2>{{item.name}}</h2>
+                                        <p>{{item.messages[0].message}}</p>
+                                    </div>
+                                    <div>
+                                        <p>{{item.messages[0].date.substring(11,16)}}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <p>{{item.messages[0].date.substring(11,16)}}</p>
+                        </div>
+                        <div v-else class="flexrw">
+                            <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
+                            <div class="card-infos">
+                                <div>
+                                    <h2>{{item.name}}</h2>
+                                    <p>{{item.messages[0].message}}</p>
+                                </div>
+                                <div>
+                                    <p>{{item.messages[0].date.substring(11,16)}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -79,7 +95,8 @@
                         </div>
                         <div class="friend-name">
                             <h2>{{activeFriend.name}}</h2>
-                            <p>{{activeFriend.messages[1].message}}</p>
+                            <p>{{activeFriend.messages[0].message}}</p>
+                            <!--Ho provato a metterci messages-length ma mi dà undefined-->
                         </div>
                         <div class="friend-functions">
                             <i class="fa-solid fa-magnifying-glass cu-clickable"></i>
@@ -106,7 +123,7 @@
                                             {{activeFriend.messages[index].message}}
                                         </div>
                                         <div class="message-time">
-                                            {{activeFriend.messages[index].date}}
+                                            {{activeFriend.messages[index].dateShowed}}
                                         </div>
                                     </div>
                                 </div>

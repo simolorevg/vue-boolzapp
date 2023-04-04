@@ -170,16 +170,18 @@ createApp({
             myMessage:'',
             activeFriend: null,
             botMessage:['Ciao, come stai?', 'Tutto bene', 'Sono felice per te :-)', 'Piove da te?'],
-            mySearch:''
+            mySearch: null
         }
     },
     methods:{
         sendMessage(){
-            let newDate = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE)
+            let newDate = dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT);
+            let newdateShowed = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE);
             const newSendedMsg ={
                 message: this.myMessage,
                 status: 'sent',
-                date: newDate
+                date: newDate,
+                dateShowed: newdateShowed
             };
             this.activeFriend.messages.push(newSendedMsg);
             this.myMessage='';
@@ -194,11 +196,13 @@ createApp({
         },
         randomBotMessage(){
             let msgRndm = this.botMessage[this.getRndInteger(0, this.botMessage.length - 1)];
-            let newDate = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE)
+            let newDate = dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT);
+            let newdateShowed = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE);
             const botMsg = {
                 message: msgRndm,
                 status: 'received',
-                date: newDate
+                date: newDate,
+                dateShowed: newdateShowed
             };
             msgRndm = '';
             this.activeFriend.messages.push(botMsg);
