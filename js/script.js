@@ -167,7 +167,7 @@ createApp({
             ],
             myMessage:'',
             activeFriend: null,
-            botMessage:'ok',
+            botMessage:['Ciao, come stai?', 'Tutto bene', 'Sono felice per te :-)'],
             mySearch:''
         }
     },
@@ -179,7 +179,7 @@ createApp({
             };
             this.activeFriend.messages.push(newSendedMsg);
             this.myMessage='';
-            setTimeout(this.randomBotMessage, 2000);
+            setTimeout(this.randomBotMessage, 1000);
         },
         activatedFriend(item, index){
             this.activeFriend = item;
@@ -189,10 +189,12 @@ createApp({
             return Math.floor(Math.random() * (max - min)) + min;
         },
         randomBotMessage(){
+            let msgRndm = this.botMessage[this.getRndInteger(0, this.botMessage.length - 1)];
             const botMsg = {
-                message: this.botMessage,
+                message: msgRndm,
                 status: 'received'
-            }
+            };
+            msgRndm = '';
             this.activeFriend.messages.push(botMsg);
         },
         searchingContacts(){

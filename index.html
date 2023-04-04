@@ -68,6 +68,7 @@
                 </div>
             </div>
             <div class="chat-main">
+                <!--FRIEND HEADER-->
                 <div class="friend-header">
                     <div v-if="activeFriend !== null" id="active-friend">
                         <div class="friend-icon">
@@ -87,8 +88,11 @@
                         <h2>Seleziona chat</h2>
                     </div>
                 </div>
+                <!--/FRIEND HEADER-->
+                <!--CHAT BOX-->
                 <div class="chat">
                     <div class="chat-box">
+                        <!--MESSAGES BOX-->
                         <div v-if="activeFriend !== null">
                             <div v-for="(message, index) in activeFriend.messages">
                                 <div :class="activeFriend.messages[index].status === 'sent'? 'message-sended' : 'message-receved'">
@@ -99,11 +103,12 @@
                             </div>
                         </div>
                         <div v-else>
-                            activefriend è nullo
                         </div>
-                        <!--Message receved box-->
+                        <!--MESSAGES BOX-->
                     </div>
                 </div>
+                <!--/CHAT BOX-->
+                <!--USER INPUT SECTION-->
                 <div class="user-input">
                     <div class="emoji cu-clickable">
                         <i class="fa-regular fa-face-smile"></i>
@@ -117,6 +122,7 @@
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>
+                <!--/USER INPUT SECTION-->
             </div>
         </div>
     </div>
