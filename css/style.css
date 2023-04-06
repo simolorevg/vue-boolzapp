@@ -121,6 +121,7 @@ body{
     flex-grow: 1;
     height: 100px;
     overflow-y: scroll;
+    background-color: white;
 }
 /*ALERT CHILDS*/
 .bell-icon{
