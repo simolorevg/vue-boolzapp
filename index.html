@@ -57,8 +57,7 @@
                 </div>
                 <div class="list-users">
                     <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)">
-                        <div  class="width_hundred" v-if="mySearch === null">
-                            <div class="flexrw">
+                        <div  class="width_hundred flexrw" v-if="mySearch === null">
                                 <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                                 <div class="card-infos">
                                     <div>
@@ -69,7 +68,7 @@
                                         <p>{{item.messages[0].date.substring(11,16)}}</p>
                                     </div>
                                 </div>
-                            </div>
+
                         </div>
                         <div v-else class="flexrw card-user" :class="mySearch !== item.name ? 'hidden' : ''">
                             <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">

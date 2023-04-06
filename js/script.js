@@ -209,7 +209,7 @@ createApp({
             this.myMessage='';
             let send = new Audio('/sounds/sended.mp3');
             send.play();
-            setTimeout(this.randomBotMessage, 500);
+            setTimeout(this.randomBotMessage, 700);
         },
         activatedFriend(item, index){
             this.activeFriend = item;
