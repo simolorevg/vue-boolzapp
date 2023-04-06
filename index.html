@@ -57,8 +57,8 @@
                 </div>
                 <div class="list-users">
                     <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)">
-                        <div v-if="mySearch !== null" class="width_hundred">
-                            <div :class="mySearch !== item.name ? 'hidden' : ''"  class="flexrw">
+                        <div  class="width_hundred" v-if="mySearch === null">
+                            <div class="flexrw">
                                 <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                                 <div class="card-infos">
                                     <div>
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-else class="flexrw">
+                        <div v-else class="flexrw card-user" :class="mySearch !== item.name ? 'hidden' : ''">
                             <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                             <div class="card-infos">
                                 <div>
