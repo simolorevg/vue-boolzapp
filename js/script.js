@@ -207,6 +207,8 @@ createApp({
             };
             this.activeFriend.messages.push(newSendedMsg);
             this.myMessage='';
+            let send = new Audio('/sounds/sended.mp3');
+            send.play();
             setTimeout(this.randomBotMessage, 500);
         },
         activatedFriend(item, index){
@@ -228,6 +230,8 @@ createApp({
             };
             msgRndm = '';
             this.activeFriend.messages.push(botMsg);
+            let receve = new Audio('/sounds/receved.mp3');
+            receve.play();
         },
         searchingContacts(){
             if(this.mySearch === this.contacts.name){
