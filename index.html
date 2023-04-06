@@ -50,7 +50,7 @@
                         </div>
                         <div class="search-input">
                             <label for="user-search"></label>
-                            <input type="text" id="user-search" placeholder="Cerca o crea nuova chat" v-model="mySearch"
+                            <input type="text" id="user-search" placeholder="Cerca o crea nuova chat" v-model.trim="mySearch"
                                 @keyup.enter="searchingContacts">
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                     <p>{{item.messages[0].message}}</p>
                                 </div>
                                 <div>
-                                    <p>{{item.messages[0].date.substring(11,16)}}</p>
+                                    <p>{{item.messages[0].dateShowed}}</p>
                                 </div>
                             </div>
                         </div>
