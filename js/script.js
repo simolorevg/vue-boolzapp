@@ -234,9 +234,14 @@ createApp({
             receve.play();
         },
         searchingContacts(){
-            if(this.mySearch === this.contacts.name){
-                console.log(this.contacts.name);
-            }
+            let userSearch = this.mySearch.toLowerCase();
+            this.contacts.forEach((friend, index) =>{
+                if(friend.name.toLowerCase().includes(userSearch)){
+                    friend.visible = true;
+                }else{
+                    friend.visible = false;
+                }
+            })
         }
     }
 }).mount('#app');

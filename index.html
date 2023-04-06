@@ -51,26 +51,13 @@
                         <div class="search-input">
                             <label for="user-search"></label>
                             <input type="text" id="user-search" placeholder="Cerca o crea nuova chat" v-model="mySearch"
-                                @keyup.enter="searchingContacts()">
+                                @keyup.enter="searchingContacts">
                         </div>
                     </div>
                 </div>
                 <div class="list-users">
-                    <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)">
-                        <div  class="width_hundred flexrw" v-if="mySearch === null">
-                                <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
-                                <div class="card-infos">
-                                    <div>
-                                        <h2>{{item.name}}</h2>
-                                        <p>{{item.messages[0].message}}</p>
-                                    </div>
-                                    <div>
-                                        <p>{{item.messages[0].date.substring(11,16)}}</p>
-                                    </div>
-                                </div>
-
-                        </div>
-                        <div v-else class="flexrw card-user" :class="mySearch !== item.name ? 'hidden' : ''">
+                    <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)" :class="item.visible ===false? 'hidden' : '' ">
+                        <div class="width_hundred flexrw">
                             <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                             <div class="card-infos">
                                 <div>
