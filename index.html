@@ -50,19 +50,20 @@
                         </div>
                         <div class="search-input">
                             <label for="user-search"></label>
-                            <input type="text" id="user-search" placeholder="Cerca o crea nuova chat" v-model.trim="mySearch"
-                                @keyup.enter="searchingContacts">
+                            <input type="text" id="user-search" placeholder="Cerca o crea nuova chat"
+                                v-model.trim="mySearch" @keyup.enter="searchingContacts">
                         </div>
                     </div>
                 </div>
                 <div class="list-users">
-                    <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)" :class="item.visible ===false? 'hidden' : '' ">
+                    <div class="card-user" v-for="(item, index) in contacts" @click="activatedFriend(item, index)"
+                        :class="item.visible ===false? 'hidden' : '' ">
                         <div class="width_hundred flexrw">
                             <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                             <div class="card-infos">
                                 <div>
                                     <h2>{{item.name}}</h2>
-                                    <p>{{item.messages[0].message}}</p>
+                                    <p>{{item.lastMsg}}</p>
                                 </div>
                                 <div>
                                     <p>{{item.messages[0].dateShowed}}</p>

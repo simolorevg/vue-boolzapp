@@ -1,5 +1,5 @@
 let { createApp } = Vue;
-const dt = luxon.DateTime; 
+const dt = luxon.DateTime;
 console.log(dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT));
 let dateNew = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE);
 createApp({
@@ -9,6 +9,7 @@ createApp({
                 {
                     name: 'Michele',
                     avatar: '_1',
+                    lastMsg: '',
                     visible: true,
                     messages: [
                         {
@@ -34,6 +35,7 @@ createApp({
                 {
                     name: 'Fabio',
                     avatar: '_2',
+                    lastMsg: '',
                     visible: true,
                     messages: [
                         {
@@ -59,6 +61,7 @@ createApp({
                 {
                     name: 'Samuele',
                     avatar: '_3',
+                    lastMsg: '',
                     visible: true,
                     messages: [
                         {
@@ -84,6 +87,7 @@ createApp({
                 {
                     name: 'Alessandro B.',
                     avatar: '_4',
+                    lastMsg: '',
                     visible: true,
                     messages: [
                         {
@@ -103,6 +107,7 @@ createApp({
                 {
                     name: 'Alessandro L.',
                     avatar: '_5',
+                    lastMsg: '',
                     visible: true,
                     messages: [
                         {
@@ -122,6 +127,7 @@ createApp({
                 {
                     name: 'Claudia',
                     avatar: '_6',
+                    lastMsg: '',
                     visible: true,
                     messages: [
                         {
@@ -147,6 +153,7 @@ createApp({
                 {
                     name: 'Federico',
                     avatar: '_7',
+                    lastMsg: '',
                     visible: true,
                     messages: [
                         {
@@ -167,6 +174,7 @@ createApp({
                     name: 'Davide',
                     avatar: '_8',
                     visible: true,
+                    lastMsg: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -189,36 +197,40 @@ createApp({
                     ],
                 }
             ],
-            myMessage:'',
+            myMessage: '',
             activeFriend: null,
-            botMessage:['Ciao, come stai?', 'Tutto bene', 'Sono felice per te :-)', 'Piove da te?'],
+            botMessage: ['Ciao, come stai?', 'Tutto bene', 'Sono felice per te :-)', 'Piove da te?'],
             mySearch: null
         }
     },
-    methods:{
-        sendMessage(){
+    mounted() {
+        this.mountedChat();
+    },
+    methods: {
+        sendMessage() {
             let newDate = dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT);
             let newdateShowed = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE);
-            const newSendedMsg ={
+            const newSendedMsg = {
                 message: this.myMessage,
                 status: 'sent',
                 date: newDate,
                 dateShowed: newdateShowed
             };
+            this.activatedFriend.lastMsg = newSendedMsg.message;
             this.activeFriend.messages.push(newSendedMsg);
-            this.myMessage='';
+            this.myMessage = '';
             let send = new Audio('/sounds/sended.mp3');
             send.play();
             setTimeout(this.randomBotMessage, 700);
         },
-        activatedFriend(item, index){
+        activatedFriend(item, index) {
             this.activeFriend = item;
             console.log(this.activeFriend);
         },
         getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         },
-        randomBotMessage(){
+        randomBotMessage() {
             let msgRndm = this.botMessage[this.getRndInteger(0, this.botMessage.length - 1)];
             let newDate = dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT);
             let newdateShowed = dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE);
@@ -228,20 +240,26 @@ createApp({
                 date: newDate,
                 dateShowed: newdateShowed
             };
+            this.activatedFriend.lastMsg = msgRndm;
             msgRndm = '';
             this.activeFriend.messages.push(botMsg);
             let receve = new Audio('/sounds/receved.mp3');
             receve.play();
         },
-        searchingContacts(){
+        searchingContacts() {
             let userSearch = this.mySearch.toLowerCase();
-            this.contacts.forEach((friend, index) =>{
-                if(friend.name.toLowerCase().includes(userSearch)){
+            this.contacts.forEach((friend, index) => {
+                if (friend.name.toLowerCase().includes(userSearch)) {
                     friend.visible = true;
-                }else{
+                } else {
                     friend.visible = false;
                 }
             })
+        },
+        mountedChat() {
+            for (let i = 0; i < this.contacts.length; i++) {
+                this.contacts[i].lastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].message;
+            }
         }
     }
 }).mount('#app');
