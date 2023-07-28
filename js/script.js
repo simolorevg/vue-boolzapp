@@ -216,7 +216,7 @@ createApp({
                 date: newDate,
                 dateShowed: newdateShowed
             };
-            this.activatedFriend.lastMsg = newSendedMsg.message;
+            this.activeFriend.lastMsg = newSendedMsg.message;
             this.activeFriend.messages.push(newSendedMsg);
             this.myMessage = '';
             let send = new Audio('/sounds/sended.mp3');
@@ -240,7 +240,7 @@ createApp({
                 date: newDate,
                 dateShowed: newdateShowed
             };
-            this.activatedFriend.lastMsg = msgRndm;
+            this.activeFriend.lastMsg = msgRndm;
             msgRndm = '';
             this.activeFriend.messages.push(botMsg);
             let receve = new Audio('/sounds/receved.mp3');
