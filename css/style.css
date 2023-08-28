@@ -226,6 +226,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.empty-chat img {
+    width: 300px;
 }
 
 /*FRIEND HEADER CHILDS*/
