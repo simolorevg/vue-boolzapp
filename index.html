@@ -62,7 +62,7 @@
                             <img :src="`./img/avatar${item.avatar}.jpg `" alt="Avatar1">
                             <div class="card-infos">
                                 <div>
-                                    <h2>{{item.name}}</h2>
+                                    <h3>{{item.name}}</h3>
                                     <p>{{item.lastMsg}}</p>
                                 </div>
                                 <div>
@@ -116,7 +116,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-else>
+                        <div v-else class="empty-chat">
+                            <p>Sembra piuttosto calmo qui: Clicca su un utente e inizia una conversazione.</p>
+                            img
                         </div>
                         <!--MESSAGES BOX-->
                     </div>
